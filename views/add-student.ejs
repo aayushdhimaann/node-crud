@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      nav {
+        height: 70px;
+        width: 100%;
+        background-color: rgb(98, 150, 19);
+      }
+      nav ul {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      nav ul li {
+        list-style: none;
+        line-height: 70px;
+      }
+      nav ul li a {
+        color: black;
+        font-size: 20px;
+      }
+      form {
+        background-color: greenyellow;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        /* gap: 20px; */
+        width: 500px;
+        margin: 50px auto;
+      }
+      form input {
+        width: 80%;
+        height: 30px;
+        margin-left: 50px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('includes/nav.ejs') %>
+    <form action="/add-student" method="post">
+      <input
+        type="number"
+        placeholder="Enter eno"
+        name="eno"
+        required
+      /><br /><br />
+      <input
+        type="text"
+        placeholder="Enter name"
+        name="name"
+        required
+      /><br /><br />
+      <input
+        type="text "
+        placeholder="Enter course"
+        name="course"
+        required
+      /><br /><br />
+      <input
+        type="number"
+        placeholder="Enter fee"
+        name="fee"
+        required
+      /><br /><br />
+      <input type="submit" value="Add Student" />
+    </form>
+  </body>
+</html>

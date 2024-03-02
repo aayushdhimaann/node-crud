@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle%></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      table {
+        margin: 10px auto;
+        background-color: greenyellow;
+        border: 1px solid black;
+        font-size: 20px;
+      }
+      td {
+        border: 1px solid;
+        text-align: center;
+      }
+      nav {
+        height: 70px;
+        width: 100%;
+        background-color: rgb(98, 150, 19);
+      }
+      nav ul {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      nav ul li {
+        list-style: none;
+        line-height: 70px;
+      }
+      nav ul li a {
+        color: black;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('includes/nav.ejs') %>
+    <table>
+      <tr>
+        <td>Eno</td>
+        <td>Name</td>
+        <td>Course</td>
+        <td>Fee</td>
+        <td colspan="2">Action</td>
+      </tr>
+      <% for(let stud of student){ %>
+
+      <tr>
+        <td><%= stud.eno %></td>
+        <td><%= stud.name %></td>
+        <td><%= stud.course %></td>
+        <td><%= stud.fee %></td>
+        <td><a href="/delete?eno=<%= stud.eno %>">delete</a> / <a href="/update?eno=<%= stud.eno %>">edit</a></td>
+      </tr>
+      <% } %>
+    </table>
+  </body>
+</html>
